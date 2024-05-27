@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des fichiers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="file-list-container">
+        <h2>Liste des fichiers</h2>
+        <ul id="fileList"></ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const response = await fetch('http://localhost:3000/files');
+            if (response.ok) {
+                const files = await response.json();
+                const fileList = document.getElementById('fileList');
+                files.forEach(file => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = file;
+                    fileList.appendChild(listItem);
+                });
+            } else {
+                console.error('Failed to load file list');
+            }
+        });
+    </script>
+</body>
+</html>

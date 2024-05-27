@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Bienvenue !</h1>
+        <p>Ceci est la page d'accueil après la connexion réussie.</p>
+        <a href="./lien/lienici.html">lienici</a>
+        <a id="autrelien" href="./lien/autrelien.html">autrelien</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            console.log(isLoggedIn);
+            if (isLoggedIn === 'true') {
+                document.getElementById('autrelien').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
